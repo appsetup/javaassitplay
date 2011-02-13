@@ -48,7 +48,7 @@ public class PostCompileByteCodeEnhancer {
                                 declaredMethod.addLocalVariable("startMs", CtClass.longType);
                                 declaredMethod.insertBefore("startMs = System.currentTimeMillis();");
                                 declaredMethod.insertAfter("{final long endMs = System.currentTimeMillis();" +
-                                        "System.out.println(\"Executed in ms: \" + (endMs-startMs));}");
+                                        "System.out.println(\" "+ declaredMethod.getName() + " Executed in ms: \" + (endMs-startMs));}");
                             }
                             compileTimeClass.writeFile(getBaseClassPath());
                         }
